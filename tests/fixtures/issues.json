@@ -1,0 +1,44 @@
+[
+  {
+    "id": "TM100001",
+    "title": "Users may not see contact names on inbound call banners",
+    "service": "Microsoft Teams",
+    "feature": "Teams Components",
+    "featureGroup": "Microsoft Teams",
+    "classification": "advisory",
+    "status": "serviceDegradation",
+    "origin": "microsoft",
+    "impactDescription": "Users may not see contact names on inbound call banners.",
+    "isResolved": false,
+    "startDateTime": "2026-11-20T08:00:00Z",
+    "lastModifiedDateTime": "2026-11-24T10:00:00Z"
+  },
+  {
+    "id": "SP100002",
+    "title": "Users may be unable to access SharePoint Online sites",
+    "service": "SharePoint Online",
+    "feature": "SharePoint Features",
+    "featureGroup": "SharePoint Online",
+    "classification": "incident",
+    "status": "serviceInterruption",
+    "origin": "microsoft",
+    "impactDescription": "Users may be unable to access SharePoint Online sites.",
+    "isResolved": false,
+    "startDateTime": "2026-11-25T07:30:00.66Z",
+    "lastModifiedDateTime": "2026-11-25T08:00:00Z"
+  },
+  {
+    "id": "MO100003",
+    "title": "Some admins may see delayed usage reports",
+    "service": "Microsoft 365 suite",
+    "feature": "Administration",
+    "featureGroup": "Portal",
+    "classification": "advisory",
+    "status": "serviceDegradation",
+    "origin": "microsoft",
+    "impactDescription": "Usage reports may be delayed.",
+    "isResolved": false,
+    "startDateTime": "2026-11-18T12:00:00Z",
+    "lastModifiedDateTime": "2026-11-23T12:00:00Z"
+  }
+]

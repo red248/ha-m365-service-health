@@ -1,0 +1,28 @@
+{
+  "entity": {
+    "binary_sensor": {
+      "incident": {
+        "default": "mdi:cloud-check-outline",
+        "state": {
+          "on": "mdi:cloud-alert"
+        }
+      }
+    },
+    "sensor": {
+      "active_advisories": {
+        "default": "mdi:information-outline"
+      },
+      "active_incidents": {
+        "default": "mdi:alert-octagon-outline"
+      },
+      "service_status": {
+        "default": "mdi:cloud-check-outline",
+        "state": {
+          "advisory": "mdi:cloud-alert-outline",
+          "incident": "mdi:cloud-cancel-outline",
+          "operational": "mdi:cloud-check-outline"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+blueprint:
+  name: Microsoft 365 service health notification
+  description: >-
+    Run actions (for example a notification) when an incident or advisory is
+    opened, updated or resolved, using the M365 Service Health integration.
+    In your actions, use the variables `title`, `message` and `url`, or any
+    field of `issue` (service, title, status, classification, action...).
+  domain: automation
+  source_url: https://github.com/red248/ha-m365-service-health/blob/main/blueprints/automation/m365_service_health_notify.yaml
+  input:
+    classifications:
+      name: Issue types
+      default: [incident]
+      selector:
+        select:
+          multiple: true
+          options:
+            - label: Incidents
+              value: incident
+            - label: Advisories
+              value: advisory
+    issue_actions:
+      name: Changes
+      default: [new, resolved]
+      selector:
+        select:
+          multiple: true
+          options:
+            - label: New issue
+              value: new
+            - label: Issue updated
+              value: updated
+            - label: Issue resolved
+              value: resolved
+    notify_actions:
+      name: Actions
+      description: >-
+        For example a notify action with title `{{ title }}`,
+        message `{{ message }}` and the link `{{ url }}`.
+      selector:
+        action: {}
+
+mode: queued
+max: 20
+
+triggers:
+  - trigger: event
+    event_type: m365_service_health_issue
+
+variables:
+  classifications: !input classifications
+  issue_actions: !input issue_actions
+  issue: "{{ trigger.event.data }}"
+  title: >-
+    M365 {{ issue.classification }} {{ issue.action }}: {{ issue.service }}
+  message: "{{ issue.title }}"
+  url: "{{ issue.url }}"
+
+conditions:
+  - condition: template
+    value_template: >-
+      {{ issue.classification in classifications
+         and issue.action in issue_actions }}
+
+actions: !input notify_actions

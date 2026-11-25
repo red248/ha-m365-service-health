@@ -1,0 +1,132 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "Ce tenant est déjà configuré.",
+      "reauth_successful": "Le nouveau secret fonctionne. L'intégration a été rechargée.",
+      "reconfigure_successful": "La nouvelle inscription d'application fonctionne. L'intégration a été rechargée.",
+      "unique_id_mismatch": "Ces identifiants appartiennent à un autre tenant."
+    },
+    "error": {
+      "blocked": "La connexion a été bloquée par une stratégie d'accès conditionnel du tenant.",
+      "cannot_connect": "Impossible de joindre Microsoft. Vérifie la connexion Internet de Home Assistant et réessaie.",
+      "expired_client_secret": "Ce secret client a expiré. Crée-en un nouveau dans Entra ID.",
+      "invalid_auth": "Microsoft a refusé ces identifiants.",
+      "invalid_client_id": "Aucune application avec cet ID client n'existe dans ce tenant.",
+      "invalid_client_id_format": "L'ID client doit être un GUID (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).",
+      "invalid_client_secret": "Secret client invalide. Vérifie que tu as copié la **Valeur** du secret, pas son ID.",
+      "invalid_tenant": "Tenant introuvable.",
+      "invalid_tenant_format": "Saisis l'ID du tenant (un GUID) ou un domaine comme contoso.onmicrosoft.com.",
+      "missing_permission": "L'inscription d'application n'a pas la permission d'application ServiceHealth.Read.All, ou le consentement administrateur n'a pas été accordé.",
+      "unknown": "Erreur inattendue, consulte les journaux de Home Assistant."
+    },
+    "step": {
+      "reauth_confirm": {
+        "data": {
+          "client_secret": "Secret client"
+        },
+        "data_description": {
+          "client_secret": "La **Valeur** du secret, affichée une seule fois à sa création dans Entra ID."
+        },
+        "description": "Le secret client utilisé pour {name} n'est plus valide (expiré ou révoqué). Crée-en un nouveau dans Entra ID et saisis-le ici.",
+        "title": "Nouveau secret client"
+      },
+      "reconfigure": {
+        "data": {
+          "client_id": "ID d'application (client)",
+          "client_secret": "Secret client"
+        },
+        "description": "Utiliser une autre inscription d'application pour {name}. Le tenant ne peut pas être changé.",
+        "title": "Changer d'inscription d'application"
+      },
+      "user": {
+        "data": {
+          "client_id": "ID d'application (client)",
+          "client_secret": "Secret client",
+          "name": "Nom",
+          "tenant_id": "ID du tenant"
+        },
+        "data_description": {
+          "client_id": "Affiché sur la page Vue d'ensemble de l'inscription d'application.",
+          "client_secret": "La **Valeur** du secret (pas son ID), affichée une seule fois à sa création.",
+          "name": "Nom de l'appareil dans Home Assistant, utile si tu surveilles plusieurs tenants.",
+          "tenant_id": "ID de l'annuaire (tenant), ou un domaine comme contoso.onmicrosoft.com."
+        },
+        "description": "Saisis les informations de ton inscription d'application Microsoft Entra ID. Elle doit avoir la permission **ServiceHealth.Read.All** de type *Application*, avec le consentement administrateur accordé.",
+        "title": "Connexion à Microsoft 365"
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "incident": {
+        "name": "Incident"
+      }
+    },
+    "sensor": {
+      "active_advisories": {
+        "name": "Avis en cours",
+        "state_attributes": {
+          "issues": {
+            "name": "Avis"
+          }
+        }
+      },
+      "active_incidents": {
+        "name": "Incidents en cours",
+        "state_attributes": {
+          "issues": {
+            "name": "Incidents"
+          }
+        }
+      },
+      "service_status": {
+        "name": "{service}",
+        "state": {
+          "advisory": "Avis",
+          "incident": "Incident",
+          "operational": "Opérationnel"
+        },
+        "state_attributes": {
+          "advisories": {
+            "name": "Avis"
+          },
+          "incidents": {
+            "name": "Incidents"
+          },
+          "microsoft_status": {
+            "name": "Statut Microsoft"
+          },
+          "service_id": {
+            "name": "ID du service"
+          }
+        }
+      }
+    }
+  },
+  "exceptions": {
+    "auth_failed": {
+      "message": "Microsoft Entra ID a refusé les identifiants ({reason}). Saisis un nouveau secret client."
+    },
+    "missing_permission": {
+      "message": "L'inscription d'application n'a pas la permission d'application ServiceHealth.Read.All ou son consentement administrateur."
+    },
+    "update_failed": {
+      "message": "Erreur lors de la récupération de l'état de santé Microsoft 365 : {error}"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "excluded_services": "Services à ignorer",
+          "scan_interval": "Intervalle d'interrogation"
+        },
+        "data_description": {
+          "excluded_services": "Aucune entité n'est créée pour ces services et leurs problèmes sont ignorés. Les nouveaux services publiés par Microsoft sont suivis automatiquement.",
+          "scan_interval": "Minutes entre deux vérifications."
+        },
+        "title": "Options"
+      }
+    }
+  }
+}

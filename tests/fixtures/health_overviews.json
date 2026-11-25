@@ -1,0 +1,7 @@
+[
+  {"id": "Exchange", "service": "Exchange Online", "status": "serviceDegradation"},
+  {"id": "microsoftteams", "service": "Microsoft Teams", "status": "serviceDegradation"},
+  {"id": "SharePoint", "service": "SharePoint Online", "status": "serviceInterruption"},
+  {"id": "OneDriveForBusiness", "service": "Microsoft OneDrive", "status": "serviceOperational"},
+  {"id": "ClipchampCommercial", "service": "Microsoft Clipchamp ", "status": "serviceOperational"}
+]
