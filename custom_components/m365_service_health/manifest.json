@@ -1,8 +1,10 @@
 {
   "domain": "m365_service_health",
   "name": "M365 Service Health",
+  "categories": ["computers_network.monitoring"],
   "codeowners": ["@red248"],
   "config_flow": true,
+  "connectivity": ["cloud"],
   "documentation": "https://github.com/red248/ha-m365-service-health",
   "integration_type": "service",
   "iot_class": "cloud_polling",
