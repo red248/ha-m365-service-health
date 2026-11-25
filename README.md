@@ -100,6 +100,10 @@ French: `..._incidents_en_cours` and `..._avis_en_cours`). Only the services you
 are counted. The list attributes are not stored in the recorder, to keep your database
 small.
 
+The `url` links open the issue in the Microsoft 365 admin center: they need an account with an
+admin role that can read service health (for example *Global Reader* or *Service Support
+Administrator*). A regular user account is redirected or refused.
+
 ## Notifications
 
 The integration fires the `m365_service_health_issue` event when an issue is opened

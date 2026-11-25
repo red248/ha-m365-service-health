@@ -100,6 +100,10 @@ l'intégration (en anglais : `..._active_incidents` et `..._active_advisories`).
 services suivis sont comptés. Les attributs de type liste ne
 sont pas enregistrés dans l'historique, pour ne pas alourdir la base de données.
 
+Les liens `url` ouvrent le problème dans le centre d'administration Microsoft 365 : il faut un
+compte avec un rôle d'administration qui donne accès à l'état des services (par exemple *Lecteur
+général* ou *Administrateur du support de service*). Un compte utilisateur normal est refusé.
+
 ## Notifications
 
 L'intégration envoie l'événement `m365_service_health_issue` quand un problème apparaît
